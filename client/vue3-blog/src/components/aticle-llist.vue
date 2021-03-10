@@ -1,7 +1,9 @@
 <template>
   <div class="article-listitemcontainer">
     <div class="article-title">
-      <router-link :to="`/article/${id}`" class="name"><h1>{{ props.title }}</h1></router-link>
+      <router-link :to="`/article/${id}`" class="name"
+        ><h1>{{ props.title }}</h1></router-link
+      >
       <div class="time">发布于 {{ props.time }}</div>
     </div>
     <p class="brief">{{ props.describe }}</p>
@@ -9,7 +11,9 @@
       <router-link :to="`/type/${props.typeId}`"
         >「{{ props.type.title }}」</router-link
       >
-      <router-link :to="`/article/${id}`" class="article-listitemmore"> 阅读全文 >></router-link>
+      <router-link :to="`/article/${id}`" class="article-listitemmore">
+        阅读全文 >></router-link
+      >
     </div>
   </div>
 </template>
@@ -37,10 +41,10 @@ export default {
       type: Object,
       required: true,
     },
-    id:{
-        type:Number,
-        required:true
-    }
+    id: {
+      type: Number,
+      required: true,
+    },
   },
   setup(props) {
     return {
@@ -68,8 +72,8 @@ export default {
       flex-shrink: 1;
       margin-right: 20px;
       cursor: pointer;
-      &:hover{
-          color: #2479cc;
+      &:hover {
+        color: #2479cc;
       }
     }
     .time {

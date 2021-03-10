@@ -6,12 +6,14 @@
       v-bind="item"
       :key="index"
     />
+    <Page />
   </div>
 </template>
 
 
 <script>
-import Article from "../components/aticle-llist.vue";
+import Article from "./aticle-llist.vue";
+import Page from './page.vue'
 import { useRoute } from "vue-router";
 import { watchEffect, ref } from "vue";
 import { getType, getArticle } from "../request/container";
@@ -61,6 +63,7 @@ export default {
   },
   components: {
     Article,
+    Page
   },
 };
 </script>

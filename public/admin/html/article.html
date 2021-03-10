@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编辑文章</title>
+    <link rel="stylesheet" href="/admin/css/reset.css">
+    <link rel="stylesheet" href="/admin/css/article.css">
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="type" style="margin-bottom: 30px;">
+            类型
+            <select id="type">
+                <option value="">请选择</option>
+            </select>
+        </div>
+        <div class="title">
+            <span class="label">标题</span> <input id="textTitle" type="text">
+        </div>
+        <div class="describe">
+            <span class="label">描述</span>
+            <textarea class="desctibe-content"></textarea>
+        </div>
+        <div id="edit">
+            <input type="file" accept=".md">
+        </div>
+        <div class="save-container">
+            <button class="save">提交</button>
+        </div>
+    </div>
+    <script src="/admin/js/jquery.js"></script>
+    <script src="/admin/plugin/layer/layer.js"></script>
+    <script src="/admin/js/article.js" type="module"></script>
+</body>
+
+</html>

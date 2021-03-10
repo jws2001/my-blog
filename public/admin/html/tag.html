@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tag</title>
+    <link rel="stylesheet" href="/admin/css/reset.css">
+    <link rel="stylesheet" href="/admin/css/tag.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="header">
+            <h5 class="title">现有的标签</h5>
+            <div class="add">新增</div>
+        </div>
+        <div class="tag-container">
+            <!-- <div class="item-container">
+                前端
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                    <path
+                        d="M4.646 4.646a.5.5 0 01.708 0L8 7.293l2.646-2.647a.5.5 0 01.708.708L8.707 8l2.647 2.646a.5.5 0 01-.708.708L8 8.707l-2.646 2.647a.5.5 0 01-.708-.708L7.293 8 4.646 5.354a.5.5 0 010-.708z">
+                    </path>
+                </svg>
+            </div> -->
+        </div>
+    </div>
+    <!-- 添加层 -->
+    <div id="add-content" style="display: none;">
+        <div class="add-input">
+            <div class="item">
+                <table>
+                    <span>标签名</span>
+                    <input class="name" type="text" autocomplete="off" placeholder="输入标签名">
+                </table>
+            </div>
+            <div class="item">
+                <table>
+                    <span>字体图标</span>
+                    <input class="icon" type="text" autocomplete="off" placeholder="输入字体图标">
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- 编辑层 -->
+    <div id="upde-content" style="display: none;">
+        <div class="add-input">
+            <div class="item">
+                <table>
+                    <span>标签名</span>
+                    <input class="name" type="text" autocomplete="off">
+                </table>
+            </div>
+            <div class="item">
+                <table>
+                    <span>字体图标</span>
+                    <input class="icon" type="text" autocomplete="off">
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="/admin/js/jquery.js"></script>
+    <script src="/admin/plugin/layer/layer.js"></script>
+    <script src="/admin/js/tag.js" type="module"></script>
+
+</body>
+
+</html>

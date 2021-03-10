@@ -141,11 +141,6 @@ html,
 body {
     font-family: Helvetica Neue, Arial, Hiragino Sans GB, STHeiti, Microsoft YaHei;
     color: #666;
-    height: 100%;
-}
-
-#app {
-    height: 100%;
 }
 
 
@@ -153,8 +148,9 @@ body {
 
 @font-face {
     font-family: 'iconfont';
-    src: url('//at.alicdn.com/t/font_2373165_c7s24vxgbso.eot');
-    src: url('//at.alicdn.com/t/font_2373165_c7s24vxgbso.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_2373165_c7s24vxgbso.woff2') format('woff2'), url('//at.alicdn.com/t/font_2373165_c7s24vxgbso.woff') format('woff'), url('//at.alicdn.com/t/font_2373165_c7s24vxgbso.ttf') format('truetype'), url('//at.alicdn.com/t/font_2373165_c7s24vxgbso.svg#iconfont') format('svg');
+    /* project id 2373165 */
+    src: url('//at.alicdn.com/t/font_2373165_73xtpg9rtfy.eot');
+    src: url('//at.alicdn.com/t/font_2373165_73xtpg9rtfy.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_2373165_73xtpg9rtfy.woff2') format('woff2'), url('//at.alicdn.com/t/font_2373165_73xtpg9rtfy.woff') format('woff'), url('//at.alicdn.com/t/font_2373165_73xtpg9rtfy.ttf') format('truetype'), url('//at.alicdn.com/t/font_2373165_73xtpg9rtfy.svg#iconfont') format('svg');
 }
 
 .iconfont {

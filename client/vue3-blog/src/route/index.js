@@ -1,28 +1,29 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 // 导入路由组件
-import home from '../components/home.vue';
 import container from '../components/container.vue';
-import admin from '../back-system/backSystem.vue';
-//定义路由规则
-const routes = [{
+import article from '../components/artilce-content.vue';
+//前端页面router
+const webRoutes = [{
         path: '/',
-        component: home
+        component: container
     },
     {
         path: '/type/:id',
         component: container
     },
     {
-        path: '/admin',
-        component: admin
+        path: '/article/:id',
+        component: article
     }
-]
+];
+
+
 
 //创建一个router
 const router = createRouter({
     history: createWebHistory(),
-    routes
+    routes: webRoutes
 });
 
 export default router;

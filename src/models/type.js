@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('./index');
 
 //定义标签类别的模型
-const Type = sequelize.define('Type', {
+const Type = sequelize.define('type', {
     //字体图标的编码
     iconText: {
         type: DataTypes.STRING,
@@ -14,8 +14,7 @@ const Type = sequelize.define('Type', {
         allowNull: false
     }
 }, {
-    freezeTableName: true,
-    timestamps: false
+    paranoid: true
 })
 
 module.exports = Type;

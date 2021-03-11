@@ -56,6 +56,7 @@ export default {
 
 <style scoped lang="less">
 .article-listitemcontainer {
+  padding-top: 5px;
   box-sizing: border-box;
   padding-bottom: 20px;
   border-top: 1px solid #ddd;

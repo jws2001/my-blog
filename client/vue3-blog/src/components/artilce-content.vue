@@ -15,8 +15,9 @@
     </div>
     <div class="marked-container">
       <div class="markdown-body" v-html="articleDate.content"></div>
-      <p class="end">{{end}}</p>
+      <p class="end">{{ end }}</p>
     </div>
+    <div>{{treePage}}8676867</div>
   </div>
 </template>
 
@@ -24,13 +25,13 @@
 import { useRoute } from "vue-router";
 import { getArticleContnet } from "../request/article-content";
 import moment from "moment";
-import marked from '../library/marked';
+import marked,{treePage} from "../library/marked";
 export default {
   data() {
     return {
       articleDate: { name: "1" }, //文章的信息
       type: {}, //类型信息
-      end:'<< 完 >>'
+      end: "<< 完 >>",
     };
   },
   async created() {
@@ -47,7 +48,7 @@ export default {
 </script>
 
 <style lang="less" >
-@media screen and (max-width:765px) {
+@media screen and (max-width: 765px) {
   .header .attath {
     display: none;
   }
@@ -74,9 +75,9 @@ export default {
     }
   }
 }
-.marked-container{
+.marked-container {
   padding-bottom: 40px;
-  .end{
+  .end {
     text-align: center;
     margin-top: 20px;
   }

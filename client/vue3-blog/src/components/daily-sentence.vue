@@ -2,11 +2,11 @@
   <div class="daily-sentence-container">
     <div class="left">
       <span class="number">{{time[2]}}</span>
-      <span class="en">{{time[1]}}</span>
+      <span class="en">{{time[1]}}.</span>
     </div>
     <div class="right">
-      <p class="top">Having derams is whta makes life tolerable</p>
-      <p class="bottom">有梦想才能忍受现实的生活</p>
+      <p class="top">To be alive is to happy</p>
+      <p class="bottom">人活着, 开心最终要</p>
     </div>
   </div>
 </template>

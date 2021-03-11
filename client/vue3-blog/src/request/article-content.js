@@ -11,6 +11,5 @@ export async function getArticleContnet(id) {
         }
     })
     const data = result.data.data;
-    console.log(data);
     return data;
 }

@@ -32,6 +32,16 @@ const apiObj = {
     addArticle: {
         method: 'POST',
         path: '/article'
+    },
+    //添加每日一句
+    addDaily: {
+        method: "POST",
+        path: '/daily'
+    },
+    //获取有道每日一句
+    getYOUDAO: {
+        method: "GET",
+        path: "/youdao"
     }
 }
 

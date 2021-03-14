@@ -1,0 +1,31 @@
+.container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 400px;
+  height: 400px;
+}
+.container .item {
+  display: flex;
+  margin-bottom: 20px;
+}
+.container .item textarea {
+  min-height: 40px;
+  resize: vertical;
+  margin-left: 10px;
+  width: 300px;
+  border-radius: 5px;
+}
+.container .save {
+  display: flex;
+  justify-content: center;
+}
+.youdao {
+  display: flex;
+  justify-content: center;
+  height: 38px;
+  margin-top: 20px;
+}

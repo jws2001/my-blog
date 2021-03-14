@@ -17,5 +17,12 @@ export default {
             method: 'GET',
             path: '/web/article/articleContent'
         }
+    },
+    daily: {
+        //获取每日一句的接口
+        getDaily: {
+            method: "GET",
+            path: '/web/daily'
+        }
     }
 }

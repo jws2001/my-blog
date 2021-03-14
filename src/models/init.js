@@ -7,7 +7,7 @@ require('./type')
 require('./loginUser')
 require('./admin')
 require('./article');
-
+require('./daily_sentence');
 
 //同步表与表之间的关系
 require('./relevance');

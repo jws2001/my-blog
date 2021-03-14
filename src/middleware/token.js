@@ -31,6 +31,9 @@ const posts = [{
     }, {
         method: 'GET',
         path: '/web/article/articleContent'
+    }, {
+        method: 'GET',
+        path: '/web/daily'
     }
 ];
 

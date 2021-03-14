@@ -28,17 +28,25 @@ app.use(require('./src/routes/type'));
 //文章的上传
 app.use(require('./src/routes/article-to-upload'));
 
+//每日一句接口
+app.use(require('./src/routes/daily-sentence'));
+
+
+
 /**
  * 前端获取数据接口
  */
 
-//接口
+//标签类型
 app.use(require('./src/webRoutes/type'));
 //文章
 app.use(require('./src/webRoutes/article'));
+//获取每日一句
+app.use(require('./src/webRoutes/daily-sentence'));
 
-
-
-
+//获取有道的每日一句接口
+app.use(require('./src/routes/getYOUDAO'));
 
 app.listen(80);
+
+// require('./src/util/reptileDaily')

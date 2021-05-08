@@ -4,6 +4,7 @@ const path = require('path');
 const bodyParser = require('koa-bodyparser');
 const cookie = require('koa-cookie').default;
 const app = new Koa();
+const config = require('./config');
 
 //返回后台管理页面
 app.use(Static(path.resolve(__dirname, './public')));
@@ -31,7 +32,8 @@ app.use(require('./src/routes/article-to-upload'));
 //每日一句接口
 app.use(require('./src/routes/daily-sentence'));
 
-
+//对文章的修改
+app.use(require('./src/routes/article'))
 
 /**
  * 前端获取数据接口
@@ -47,6 +49,10 @@ app.use(require('./src/webRoutes/daily-sentence'));
 //获取有道的每日一句接口
 app.use(require('./src/routes/getYOUDAO'));
 
-app.listen(80);
+//顶级评论
+app.use(require('./src/webRoutes/comment'));
 
-// require('./src/util/reptileDaily')
+//子评论
+app.use(require('./src/webRoutes/commentChildren'));
+
+app.listen(config.post);

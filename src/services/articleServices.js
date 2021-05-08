@@ -48,8 +48,55 @@ async function getArticleContent(id) {
 }
 
 
+//获取所有的文章
+async function getArticleAll() {
+    const info = await Article.findAll({
+        attributes: ['id', 'title', 'describe'],
+        order: [
+            ['id', 'DESC']
+        ],
+        where: {
+            deletedAt: null
+        }
+    });
+    return info;
+}
+
+//根据id删除文章
+async function delArticle(id) {
+    const info = await Article.destroy({
+        where: {
+            id
+        }
+    })
+    return info;
+}
+
+
+//根据id获取文章内容
+async function getContent(id) {
+    const info = await Article.findByPk(id, {
+        attributes: ['id', 'content']
+    })
+    return info;
+}
+
+//提交修改信息
+async function editContent(id, newContent) {
+    const info = await Article.update({ content: newContent }, {
+        where: {
+            id
+        }
+    })
+    return info;
+}
+
 module.exports = {
     addArticle,
     getPageArticle,
-    getArticleContent
+    getArticleContent,
+    getArticleAll,
+    delArticle,
+    getContent,
+    editContent
 }

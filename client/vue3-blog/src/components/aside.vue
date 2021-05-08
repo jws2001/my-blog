@@ -3,27 +3,28 @@
   <div class="aside-container">
     <!-- 头像区域 -->
     <div class="aside-profile">
-      <router-link class="avat" to="/">
-        <img class="logo" src="../assets/logo.jpg" alt="" />
+      <router-link class="avat" to="/" >
+        <img class="logo" src="../assets/logo.jpg" alt="头像" @click="changePageIndex" />
       </router-link>
       <h1 class="aside-profile-title">焦文松的博客</h1>
-      <div class="aside-profile-description">Life is a funcking movie</div>
+      <div class="aside-profile-description">祝:小花每天开心</div>
+      <!-- <div class="aside-profile-description">Life is a funcking movie</div> -->
     </div>
     <!-- 类别区域 -->
     <ul class="aside-buttons">
-      <li @click="handleisAside(!isAside)">
-        <router-link to="/" title="首页">
+      <li @click="handleisAside(!isAside),changePageIndex()">
+        <router-link :to="{name:`Home`}" title="首页" exact>
           <i class="iconfont">&#xe611;</i>
           <span>首页</span>
         </router-link>
       </li>
       <li
-        @click="handleisAside(!isAside)"
+        @click="handleisAside(!isAside),changePageIndex()"
         v-for="item in typeData"
         :key="item.id"
       >
-        <router-link :to="`/type/${item.id}`">
-          <i class="iconfont" v-html="item.iconText"></i>
+        <router-link :to="`/type/${item.id}`" :exact="false">
+          <i class="iconfont" v-html="item.iconText" ></i>
           <span>{{ item.title }}</span>
         </router-link>
       </li>
@@ -41,6 +42,7 @@ import {
 } from "../composition/isAside/compositionAside";
 import { ref } from "vue";
 import { getType } from "../request/aside";
+import pageRefStore from "../store/page";
 export default {
   setup() {
     let typeData = ref([]);
@@ -51,12 +53,18 @@ export default {
       typeData,
     };
   },
+  methods: {
+    changePageIndex() {
+      pageRefStore.value.offset = 1;
+    },
+  },
 };
 </script>
 
 <style scoped lang='less'>
 .aside-container {
   position: relative;
+  z-index: 100;
   .close {
     position: absolute;
     right: -44px;
@@ -88,8 +96,8 @@ export default {
     border-radius: 50%;
     cursor: pointer;
     transition: all 2s;
-    &:hover{
-      transform: rotate(360deg)
+    &:hover {
+      transform: rotate(360deg);
     }
   }
   .aside-profile-title {
@@ -100,7 +108,7 @@ export default {
   .aside-profile-description {
     padding: 10px 0;
     color: #bac9ff;
-    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
     font-size: 14px;
   }
 }

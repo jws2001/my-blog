@@ -2,14 +2,14 @@
   <div class="article-listitemcontainer">
     <div class="article-title">
       <router-link :to="`/article/${id}`" class="name"
-        ><h1>{{ props.title }}</h1></router-link
+        ><h1>{{ title }}</h1></router-link
       >
-      <div class="time">发布于 {{ props.time }}</div>
+      <div class="time">发布于 {{ time }}</div>
     </div>
-    <p class="brief">{{ props.describe }}</p>
+    <p class="brief">{{ describe }}</p>
     <div class="skip">
-      <router-link :to="`/type/${props.typeId}`"
-        >「{{ props.type.title }}」</router-link
+      <router-link :to="`/type/${typeId}`"
+        >「{{ type.title }}」</router-link
       >
       <router-link :to="`/article/${id}`" class="article-listitemmore">
         阅读全文 >></router-link
@@ -45,12 +45,7 @@ export default {
       type: Number,
       required: true,
     },
-  },
-  setup(props) {
-    return {
-      props,
-    };
-  },
+  }
 };
 </script>
 

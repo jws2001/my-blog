@@ -6,7 +6,6 @@
     <div class="main-content">
       <Header />
       <div class="content">
-        <DailySentence />
         <router-view></router-view>
         <Footer />
       </div>
@@ -19,7 +18,6 @@ import Aside from "./components/aside.vue";
 import Header from "./components/header.vue";
 import { isAside } from "./composition/isAside/compositionAside";
 import Footer from "./components/footer.vue";
-import DailySentence from "./components/daily-sentence.vue";
 export default {
   name: "App",
   setup() {
@@ -31,7 +29,6 @@ export default {
     Aside,
     Header,
     Footer,
-    DailySentence,
   },
 };
 </script>
@@ -51,7 +48,6 @@ export default {
 
   .content {
     padding: 0 40px;
-    padding-top: 100px;
     padding-left: 290px;
     transition: all 0.3s linear;
   }
@@ -61,6 +57,7 @@ export default {
 @media screen and (max-width: 765px) {
   .container .nav {
     left: -250px;
+    z-index: 100;
   }
   .container .nav.show {
     left: 0;

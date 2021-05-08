@@ -1,7 +1,11 @@
 <template>
-  <div class="page-container">
-    <span @click="handleHomePage" :class="{ active: current != 1 }">|<<</span>
-    <span @click="handleIncRed('prev')" :class="{ active: current != 1 }"><<</span>
+  <div class="page-container" v-show="totalPage.length > 1">
+    <span @click="handleHomePage" :class="{ active: current != 1 }"
+      >|&lt;&lt;</span
+    >
+    <span @click="handleIncRed('prev')" :class="{ active: current != 1 }"
+      >&lt;&lt;</span
+    >
     <span
       @click="handlePage(item)"
       :class="{ current: current == item }"
@@ -10,54 +14,107 @@
       :key="index"
       >{{ item }}</span
     >
-    <span @click="handleIncRed('next')" :class="{ active: current != totalPage }">>></span>
+    <span
+      @click="handleIncRed('next')"
+      :class="{ active: current != totalPage }"
+      >&gt;&gt;</span
+    >
     <span @click="handleTrailerPage" :class="{ active: current != totalPage }"
-      >>>|</span
+      >&gt;&gt;|</span
     >
   </div>
 </template>
 
 <script>
 // 分页组件
+import pageRefStore from "../store/page";
 export default {
+  props: {
+    //总页码数
+    totalData: {
+      require: true,
+      type: Number,
+    },
+    //每页显示几条
+    pageSize: {
+      require: true,
+      type: Number,
+    },
+    //页码改变执行的函数
+    change: {
+      type: Function,
+      require: true,
+    },
+  },
   data() {
     return {
       current: 1, //当前的页码
-      totalPage: 10, //总页数
-      pageSize:5,//显示的页码数
+      pagetotal: 5, //最多显示5个页码
+      trailer: 1, //尾页
     };
   },
-  components:{
-    comTotalPage(){
-      
-    }
+  computed: {
+    //计算出渲染的页码数组
+    totalPage() {
+      if (pageRefStore.value.offset === 1) {
+        this.current = 1;
+      }
+      const totalPage = Math.ceil(this.totalData / this.pageSize);
+      this.trailer = totalPage;
+      if (!totalPage) {
+        return [];
+      }
+      let pageArray = []; //页码数组
+      for (let i = 1; i <= totalPage; i++) {
+        pageArray.push(i);
+      }
+
+      if (totalPage - this.current < this.pagetotal) {
+        return pageArray;
+      }
+      pageArray = pageArray.slice(this.current - 1, this.pagetotal);
+      return pageArray;
+    },
   },
   methods: {
+    //滚动条置顶函数
+    moveScroll() {
+      document.documentElement.scrollTop = 0;
+    },
     //点击改变当前页码
     handlePage(pageIndex) {
       this.current = pageIndex;
+      this.change(this.current);
+      this.moveScroll();
     },
     //点击首页
     handleHomePage() {
       this.current = 1;
+      this.change(this.current);
+      this.moveScroll();
     },
     //点击尾页
     handleTrailerPage() {
-      this.current = this.totalPage;
+      this.current = this.trailer;
+      this.change(this.current);
+      this.moveScroll();
     },
     //点击上一页 下一页
     handleIncRed(type) {
+      this.moveScroll();
       if (type === "prev") {
         if (this.current == 1) {
           return;
         }
         this.current--;
+        this.change(this.current);
         return;
       } else if (type === "next") {
         if (this.current == this.totalPage) {
           return;
         }
         this.current++;
+        this.change(this.current);
       }
     },
   },

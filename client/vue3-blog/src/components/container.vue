@@ -1,44 +1,54 @@
 <template>
   <div class="home">
+    <DailySentence />
     <h1 class="type-title" v-if="typeInfoRef">{{ typeInfoRef.title }}</h1>
     <Article
       v-for="(item, index) in dataList.rows"
       v-bind="item"
       :key="index"
     />
-    <Page />
+    <Page
+      :current="pageRefStore.offset"
+      :total="dataList.count"
+      :limtSize="pageRefStore.limit"
+      @pageChange="pageChange"
+    />
   </div>
 </template>
 
 
 <script>
 import Article from "./aticle-llist.vue";
-import Page from './page.vue'
 import { useRoute } from "vue-router";
 import { watchEffect, ref } from "vue";
 import { getType, getArticle } from "../request/container";
+import DailySentence from "./daily-sentence.vue";
+import pageRefStore from "../store/page";
+import Page from "./pageCom/index.vue";
 export default {
-  setup(prop, ctx) {
-    //type信息
+  methods: {
+    pageChange(newPage) {
+      pageRefStore.value.offset = newPage
+    },
+  },
+  setup() {
+    //路由信息
     const router = useRoute();
     //type信息
     const typeInfoRef = ref(false);
     //列表数据
     const dataList = ref([]);
     //分页
-    const pagrRef = ref({
-      offset: 1,
-      limit: 10,
-    });
-
     watchEffect(async () => {
       const path = router.path;
+      //触发监听的响应式
+      const offset = pageRefStore.value.offset;
       if (path === "/") {
         typeInfoRef.value = false;
         //获取文章
         dataList.value = await getArticle(
-          pagrRef.value.offset,
-          pagrRef.value.limit
+          pageRefStore.value.offset,
+          pageRefStore.value.limit
         );
       } else {
         const isType = /^\/type\/\d*\d$/.test(path);
@@ -50,8 +60,8 @@ export default {
         typeInfoRef.value = await getType(typeId);
         //获取文章
         dataList.value = await getArticle(
-          pagrRef.value.offset,
-          pagrRef.value.limit,
+          pageRefStore.value.offset,
+          pageRefStore.value.limit,
           typeId
         );
       }
@@ -59,20 +69,32 @@ export default {
     return {
       typeInfoRef,
       dataList,
+      pageRefStore,
     };
   },
   components: {
     Article,
-    Page
+    Page,
+    DailySentence,
   },
 };
 </script>
 
 <style scoped lang="less">
 .home {
+  padding-top: 100px;
   .type-title {
     font-size: 2em;
     padding: 1em 0;
+  }
+  .page-container{
+    border-top: 1px solid #eee;
+  }
+}
+
+@media screen and (max-width: 765px) {
+  .home {
+    padding-top: 0;
   }
 }
 </style>

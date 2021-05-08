@@ -141,6 +141,7 @@ html,
 body {
     font-family: Helvetica Neue, Arial, Hiragino Sans GB, STHeiti, Microsoft YaHei;
     color: #666;
+    scroll-behavior: smooth;
 }
 
 
@@ -148,9 +149,8 @@ body {
 
 @font-face {
     font-family: 'iconfont';
-    /* project id 2373165 */
-    src: url('//at.alicdn.com/t/font_2373165_73xtpg9rtfy.eot');
-    src: url('//at.alicdn.com/t/font_2373165_73xtpg9rtfy.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_2373165_73xtpg9rtfy.woff2') format('woff2'), url('//at.alicdn.com/t/font_2373165_73xtpg9rtfy.woff') format('woff'), url('//at.alicdn.com/t/font_2373165_73xtpg9rtfy.ttf') format('truetype'), url('//at.alicdn.com/t/font_2373165_73xtpg9rtfy.svg#iconfont') format('svg');
+    /* Project id 2373165 */
+    src: url('//at.alicdn.com/t/font_2373165_2aun5ra7cjy.woff2?t=1620399914673') format('woff2'), url('//at.alicdn.com/t/font_2373165_2aun5ra7cjy.woff?t=1620399914673') format('woff'), url('//at.alicdn.com/t/font_2373165_2aun5ra7cjy.ttf?t=1620399914673') format('truetype');
 }
 
 .iconfont {

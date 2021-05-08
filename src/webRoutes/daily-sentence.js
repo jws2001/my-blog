@@ -7,7 +7,6 @@ const router = new Router({
 
 router.get('/', async ctx => {
     const info = await DailySentence.getDaily();
-    console.log(info)
     ctx.body = returnData(info, '获取成功')
 })
 

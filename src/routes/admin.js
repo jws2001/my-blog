@@ -17,6 +17,7 @@ router.get('/', async ctx => {
         }, '请登录在访问', 0);
         return;
     }
+
     //token 存在获取个人信息
     const id = token.data.id
     const result = await Admin.whoAmI(id)
@@ -32,6 +33,7 @@ router.post('/', async ctx => {
     jwt.publish(ctx, uInfo);
     ctx.body = uInfo;
 });
+
 //添加管理员
 router.post('/add', async ctx => {
     const reqBody = ctx.request.body;

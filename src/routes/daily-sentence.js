@@ -9,7 +9,6 @@ const router = new Router({
 router.post('/', async ctx => {
     const reqBody = ctx.request.body;
     const info = await DailySentence.addDailySentence(reqBody.en, reqBody.zh_CN);
-
     ctx.body = returnData(info, '添加成功')
 })
 

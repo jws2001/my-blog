@@ -17,6 +17,6 @@ module.exports = async function() {
             }
         })
     }
-    DailySentence.bulkCreate(daily);
+    DailySentence.bulkCreate(daily[0]);
     return daily;
 }

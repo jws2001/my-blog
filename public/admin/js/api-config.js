@@ -1,4 +1,5 @@
-const baseUrl = 'http://localhost/api';
+// const baseUrl = '';
+const baseUrl = '/api';
 
 const apiObj = {
     // 登录
@@ -42,6 +43,26 @@ const apiObj = {
     getYOUDAO: {
         method: "GET",
         path: "/youdao"
+    },
+    //获取全部文章
+    getArticleAll: {
+        method: "GET",
+        path: "/articledit"
+    },
+    //删除文章
+    deleteArticle: {
+        method: "POST",
+        path: "/articledit"
+    },
+    //获取文章详情
+    getContent: {
+        method: "POST",
+        path: "/articledit/content"
+    },
+    //修改文章接口
+    editContent: {
+        method: "POST",
+        path: "/articledit/editContent"
     }
 }
 

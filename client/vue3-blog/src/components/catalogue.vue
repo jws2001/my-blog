@@ -11,7 +11,9 @@
           <ul class="children-container">
             <li v-for="(children, index) in item.children" :key="index">
               <div class="toc-item">
-                <a :href="`#${children.id}`">{{ children.text }}</a>
+                <a :href="`#${children.id}`">{{
+                  children.text
+                }}</a>
               </div>
             </li>
           </ul>
@@ -30,8 +32,10 @@ export default {
     },
   },
   data() {
-    return {};
-  },
+    return {
+      timer: null, //定时器指针
+    };
+  }
 };
 </script>
 

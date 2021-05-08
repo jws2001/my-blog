@@ -23,7 +23,7 @@ exports.publish = function(ctx, info = {}, maxAge = 3600 * 1000) {
 
 
 //验证JWT
-exports.verify = function(ctx) {
+exports.verify = async function(ctx) {
     //尝试从cookie中获取jwt
     const cookies = ctx.cookie;
     let token = cookies ? cookies[cookieKey] : null;

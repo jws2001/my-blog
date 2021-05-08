@@ -19,5 +19,4 @@ axios.get('https://www.douban.com/note/244854670/').then(async res => {
         }
     })
     await DailySentence.bulkCreate(data);
-    console.log('爬虫获取数据完成')
 })

@@ -34,16 +34,26 @@ const posts = [{
     }, {
         method: 'GET',
         path: '/web/daily'
+    }, {
+        method: 'POST',
+        path: '/web/comment'
+    },
+    {
+        method: 'GET',
+        path: '/web/comment'
+    },
+    {
+        method: 'POST',
+        path: '/web/commentChildren'
     }
 ];
 
 module.exports = async function(ctx, next) {
-    console.log(new Date().toLocaleTimeString())
-        //首先判断 这个接口需不需要验证
+    //首先判断 这个接口需不需要验证
     const isVerify = posts.filter(item => {
         return item.method === ctx.method && item.path === ctx.path;
     })
-    console.log(ctx.method, ctx.path)
+    console.log(isVerify)
     if (isVerify.length) {
         //不需要验证token
         await next();
@@ -58,6 +68,5 @@ module.exports = async function(ctx, next) {
         ctx.body = returnData({
             isLogin: false
         }, '请登录在访问', 0);
-        console.log(ctx.body)
     }
 }

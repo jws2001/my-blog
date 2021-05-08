@@ -22,7 +22,7 @@ async function getDaily() {
 
 //批量创建每日一句
 async function bulkCreate(data) {
-    const info = await DailySentence.bulkCreate(data, {
+    const info = await DailySentence.create(data, {
         attributes: ['en', 'zh_CN']
     });
     return info;

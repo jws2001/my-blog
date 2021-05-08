@@ -1,3 +1,4 @@
 /node_modules
 /client/vue3-blog/node_modules
+/client/vue3-blog/dist
 /public/uploadMd

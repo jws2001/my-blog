@@ -7,7 +7,6 @@ const router = new Router({
 
 router.get('/', async ctx => {
     const info = await YOUDAO();
-    console.log(info);
     ctx.body = returnDate(info, '获取成功');
 })
 

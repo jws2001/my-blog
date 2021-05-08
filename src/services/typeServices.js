@@ -23,7 +23,6 @@ async function removeType(id) {
 //获取博客类型 传递了id就是获取单个博客类型 没有就是全部的博客类信
 async function getAllType(typeId) {
     let result;
-    // console.log(typeId)
     if (typeId) {
         result = await Type.findByPk(+typeId, {
             attributes: ['id', 'title']

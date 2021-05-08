@@ -15,16 +15,11 @@ const router = new Router({
 })
 
 router.post('/', upload.single('content'), async ctx => {
-    console.log(ctx.file);
     const fileName = path.resolve(__dirname, '../../public/uploadMd', ctx.file.filename);
-    console.log('fileName', fileName)
-
     //获取当前的utc时间戳
     const dateTime = moment().utc().valueOf();
     const content = fs.readFileSync(fileName, 'utf-8');
-
-    const ArticleInfo = await Article.addArticle(content, dateTime, ctx.request.body.typeId, ctx.request.body.title, ctx.request.body.describe)
-
+    const ArticleInfo = await Article.addArticle(content, dateTime, ctx.request.body.typeId, ctx.request.body.title, ctx.request.body.describe);
     ctx.body = returnData(ArticleInfo, '上传成功');
 
 })

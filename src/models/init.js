@@ -8,6 +8,8 @@ require('./loginUser')
 require('./admin')
 require('./article');
 require('./daily_sentence');
+require('./comment')
+require('./commentChildren');
 
 //同步表与表之间的关系
 require('./relevance');
@@ -15,4 +17,4 @@ require('./relevance');
 
 
 // 同步模型
-// require('./asyncModule')
+require('./asyncModule')

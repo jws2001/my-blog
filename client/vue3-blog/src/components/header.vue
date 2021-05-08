@@ -1,8 +1,8 @@
 <template>
   <div class="header-container">
     <div class="list-container" @click="handleisAside(!isAside)">
-        <!-- 列表 -->
-        <i class="iconfont">&#xe649;</i>
+      <!-- 列表 -->
+      <i class="iconfont">&#xe649;</i>
     </div>
     <h1 class="title-container">焦文松的博客</h1>
     <div class="avater-container">
@@ -15,14 +15,17 @@
 
 <script>
 // 是否显示侧边栏的变量
-import { isAside,handleisAside} from '../composition/isAside/compositionAside';
+import {
+  isAside,
+  handleisAside,
+} from "../composition/isAside/compositionAside";
 export default {
-    setup(props) {
-       return{
-         isAside,
-           handleisAside
-       }
-    }
+  setup(props) {
+    return {
+      isAside,
+      handleisAside,
+    };
+  },
 };
 </script>
 
@@ -39,6 +42,7 @@ export default {
   align-items: center;
   padding: 0 10px;
   color: #ccc;
+  z-index: 1;
   justify-content: space-between;
   .list-container {
     width: 24px;
@@ -47,32 +51,32 @@ export default {
     line-height: 24px;
     font-size: 24px;
     flex-shrink: 0;
-    i{
-        display: block;
-        width: 100%;
-        height: 100%;
-        font-size: 24px;
-        cursor: pointer;
+    i {
+      display: block;
+      width: 100%;
+      height: 100%;
+      font-size: 24px;
+      cursor: pointer;
     }
   }
-  .title-container{
-      font-weight: bold;
-      flex-grow: 1;
-      flex-shrink: 1;
-      text-align: center;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
+  .title-container {
+    font-weight: bold;
+    flex-grow: 1;
+    flex-shrink: 1;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
-  .avater-container{
-      flex-shrink: 0;
-      width: 30px;
-      height: 30px;
-      img{
-          width: 100%;
-          height: 100%;
-          border-radius: 50%;
-      }
+  .avater-container {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
   }
 }
 @media screen and (min-width: 765px) {

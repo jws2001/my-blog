@@ -24,7 +24,7 @@ const CommentChildren = sequelize.define('commentchildren', {
     },
     //头像图片地址
     avatarSrc: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false
     }
 })

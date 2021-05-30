@@ -53,13 +53,12 @@ module.exports = async function(ctx, next) {
     const isVerify = posts.filter(item => {
         return item.method === ctx.method && item.path === ctx.path;
     })
-    console.log(isVerify)
     if (isVerify.length) {
         //不需要验证token
         await next();
         return;
     } else {
-        const token = jwt.verify(ctx);
+        const token = await jwt.verify(ctx);
         if (token) {
             await next();
             return;

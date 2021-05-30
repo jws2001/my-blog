@@ -3,7 +3,7 @@ const sequelize = require('./index');
 const Article = sequelize.define('article', {
     //文章内容
     content: {
-        type: DataTypes.TEXT,
+        type: DataTypes.TEXT('long'),
         allowNull: false,
     },
     //上传的时间

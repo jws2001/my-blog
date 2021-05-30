@@ -4,13 +4,11 @@
       <router-link :to="`/article/${id}`" class="name"
         ><h1>{{ title }}</h1></router-link
       >
-      <div class="time">发布于 {{ time }}</div>
+      <div class="time">{{ time }}</div>
     </div>
     <p class="brief">{{ describe }}</p>
     <div class="skip">
-      <router-link :to="`/type/${typeId}`"
-        >「{{ type.title }}」</router-link
-      >
+      <router-link :to="`/type/${typeId}`">「{{ type.title }}」</router-link>
       <router-link :to="`/article/${id}`" class="article-listitemmore">
         阅读全文 >></router-link
       >
@@ -45,11 +43,13 @@ export default {
       type: Number,
       required: true,
     },
-  }
+  },
 };
 </script>
 
 <style scoped lang="less">
+
+
 .article-listitemcontainer {
   padding-top: 5px;
   box-sizing: border-box;
@@ -58,7 +58,6 @@ export default {
   .article-title {
     display: flex;
     justify-content: space-between;
-    line-height: 1.7;
     align-items: center;
     .name {
       font-weight: 300;
@@ -90,5 +89,22 @@ export default {
       margin-left: 20px;
     }
   }
+}
+
+// 响应式
+@media screen and (max-width: 765px) {
+  .article-listitemcontainer{
+    .article-title{
+      // display: block;
+      display: flex;
+      height: auto;
+      align-items: inherit;
+      .name{
+        font-size: 1.3em;
+        line-height: 1.3em;
+      }
+    }
+  }
+
 }
 </style>

@@ -32,7 +32,6 @@ router.post('/content', async ctx => {
 router.post('/editContent', async ctx => {
     const id = ctx.request.body.id;
     const newContent = ctx.request.body.newContent;
-    console.log(newContent)
     const data = await articleServices.editContent(id, newContent);
     ctx.body = reutrnData(data, 'yes');
 })

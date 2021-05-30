@@ -1,5 +1,5 @@
-import api from '/admin/js/api-config.js';
-import autoLogin from '/admin/util/autoLogin.js';
+import api from '/js/api-config.js';
+import autoLogin from '/util/autoLogin.js';
 autoLogin($);
 $('.save button').on('click', function() {
     const en = $('.item textarea[name=en]').val();

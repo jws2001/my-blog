@@ -237,8 +237,7 @@ export default {
   .title {
     color: #333;
     font-weight: 400;
-    font-size: 2em;
-    height: 50px;
+    font-size: 1.6em;
     line-height: 53px;
     margin: 22px 0;
   }

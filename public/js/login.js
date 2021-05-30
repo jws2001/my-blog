@@ -1,4 +1,4 @@
-import api from '/admin/js/api-config.js';
+import api from '/js/api-config.js';
 document.querySelector('.handle .login').addEventListener('click', e => {
     const loginId = document.getElementById('login-id');
     const loginPwd = document.getElementById('login-pwd');
@@ -15,7 +15,7 @@ document.querySelector('.handle .login').addEventListener('click', e => {
             if (res.code) {
                 //设置登录成功的状态信息
                 window.localStorage.setItem('login', true);
-                window.location = '/admin';
+                window.location = '/';
             } else {
                 alert(res.msg)
             }

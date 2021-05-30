@@ -3,18 +3,51 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>焦文松的博客</title>
-<script type="module" src="/_assets/index.34bc74e0.js"></script>
-<link rel="stylesheet" href="/_assets/style.2b002a2d.css">
+    <title>后台管理</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 
 <body>
-    <div id="app"></div>
-    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
-    
+    <div id="wrapper">
+        <div class="titltName">
+            <div class="name"><span class="hello">你好</span><span class="user-name"></span></div>
+            <div class="login-out">退出</div>
+        </div>
+        <div class="main-container">
+            <a href="/html/article.html">
+                <div class="item-container">
+                    添加文章
+                </div>
+            </a>
+            <a href="/html/editDelArticle.html">
+                <div class="item-container">
+                    编辑、删除文章
+                </div>
+            </a>
+            <a href="/html/tag.html">
+                <div class="item-container">
+                    标签
+                </div>
+            </a>
+            <a href="/html/daily-sentence.html">
+                <div class="item-container">
+                    每日一句
+                </div>
+            </a>
+            <a href="/html/uploadImg.html">
+                <div class="item-container">
+                    上传图片
+                </div>
+            </a>
+        </div>
+
+    </div>
+    <script src="/js/jquery.js"></script>
+    <script src="/plugin/layer/layer.js"></script>
+    <script src="/js/index.js" type="module"></script>
 </body>
 
 </html>

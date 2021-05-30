@@ -1,11 +1,11 @@
-import api from '/admin/js/api-config.js';
+import api from '/js/api-config.js';
 export default function($) {
     $(document).ajaxSuccess(function(event, request, settings) {
         const data = request.responseJSON;
         if (data.data.isLogin === false) {
             alert('请登录在访问')
             window.localStorage.removeItem('login');
-            window.location = '/admin/html/login.html'
+            window.location = '/html/login.html'
         }
     })
     $.ajax({

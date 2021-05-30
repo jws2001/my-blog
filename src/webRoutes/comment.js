@@ -12,19 +12,30 @@ function ranDomNumber(min, max) {
 
 
 //添加顶级评论
+let astrict = 0;
+let userID = '';
 router.post('/', async ctx => {
+    //同一个userID 1分钟只能评论2次
     const data = ctx.request.body;
+    if (astrict + 1000 * 60 > Date.now() && userID === data.userId) {
+        ctx.body = returnData(null, '禁止刷屏');
+        return
+    }
+    userID = data.userId;
+    astrict = Date.now();
+
     let avatarSrc, avatarIndex;
     //传递了头像就不用自己生成了
     if (!data.avatar) {
         avatarIndex = ranDomNumber(1, 23);
-
         avatarSrc = imgSec[avatarIndex]
     }
     avatarSrc ? '' : avatarSrc = data.avatar;
     const comment = await addRootComment(data.userId, data.userName, data.content, data.articleId, avatarSrc);
     ctx.body = returnData(comment, '评论成功')
 })
+
+
 
 //根据文章id分页获取评论
 router.get('/', async ctx => {

@@ -63,6 +63,11 @@ const apiObj = {
     editContent: {
         method: "POST",
         path: "/articledit/editContent"
+    },
+    //上传图片接口
+    uploadImg: {
+        method: "POST",
+        path: "/article/img"
     }
 }
 

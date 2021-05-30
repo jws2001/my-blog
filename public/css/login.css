@@ -1,0 +1,88 @@
+.wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #b8e5f8;
+    background-image: url('/assets/bg.png');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper .login-container {
+    width: 400px;
+    padding: 40px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px rgba(18, 18, 18, 0.1);
+    border-radius: 5px;
+}
+
+.wrapper .login-container .login-form .item {
+    height: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    line-height: 40px;
+}
+
+.wrapper .login-container .login-form .item label {
+    cursor: pointer;
+    width: 50px;
+}
+
+.wrapper .login-container .login-form .item input {
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    height: 100%;
+    text-indent: 10px;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    width: 280px;
+}
+
+.wrapper .login-container .login-form .item input:focus {
+    border-color: #409eff;
+    outline: 0;
+}
+
+.wrapper .login-container .login-form .handle {
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.wrapper .login-container .login-form .handle button {
+    color: #fff;
+    background-color: #409eff;
+    border-color: #409eff;
+    outline: none;
+    width: 70px;
+    height: 38px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: none;
+}
+
+.wrapper .login-container .login-form .handle .login:hover {
+    background: #66b1ff;
+    border-color: #66b1ff;
+    color: #fff;
+}
+
+.wrapper .login-container .login-form .handle .reset {
+    border: 1px solid #dcdfe6;
+    color: #606266;
+    background-color: #ffffff;
+}
+
+.wrapper .login-container .login-form .handle .reset:hover {
+    color: #409eff;
+    border-color: #c6e2ff;
+    background-color: #ecf5ff;
+}

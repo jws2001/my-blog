@@ -24,7 +24,7 @@ const Comment = sequelize.define('comment', {
     },
     //头像图片地址
     avatar: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false
     }
 })

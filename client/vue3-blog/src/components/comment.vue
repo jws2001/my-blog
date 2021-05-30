@@ -3,10 +3,10 @@
     <div class="header" v-show="isUserName">
       <input
         class="name"
-        @input="nameChange"
-        :value="name"
         type="text"
+        v-model="name"
         placeholder="用户昵称"
+        maxlength="9"
       />
       <span class="number">{{ name.length }}/9</span>
     </div>
@@ -16,10 +16,11 @@
     </div>
     <div class="content">
       <textarea
-        :value="text"
         class="comment-text"
         placeholder="请输入内容"
-        @input="textChange"
+        autocomplete="off"
+        maxlength="99"
+        v-model="text"
       ></textarea>
       <span class="number">{{ text.length }}/99</span>
     </div>
@@ -69,20 +70,6 @@ export default {
     userInfo ? (this.isUserName = false) : "";
   },
   methods: {
-    nameChange(event) {
-      const target = event.target;
-      const value =
-        target.value.length > 9 ? target.value.substring(0, 9) : target.value;
-      this.name = value;
-      target.value = value;
-    },
-    textChange(event) {
-      const target = event.target;
-      const value =
-        target.value.length > 9 ? target.value.substring(0, 99) : target.value;
-      this.text = value;
-      target.value = value;
-    },
     //提交事件(防抖函数)
     async save(time) {
       if (!localStorage.getItem("userInfo") && !this.name) {
@@ -144,11 +131,13 @@ export default {
           );
           this.isUserName = false;
         }
-        this.pushCommentChiredn(commentStoreRef.value.pitchInfo,result.data.data)
+        this.pushCommentChiredn(
+          commentStoreRef.value.pitchInfo,
+          result.data.data
+        );
         commentStoreRef.value.pitchInfo = {};
         commentStoreRef.value.isReply = false;
       } else {
-        
         if (userInfo) {
           //已经评论过了
           userInfo = JSON.parse(userInfo);
@@ -159,7 +148,15 @@ export default {
             this.articleId,
             userInfo.avatar
           );
-          this.changeCommentList(result.data);
+          if (result.data) {
+            this.changeCommentList(result.data);
+          } else {
+            ElMessage({
+              message: result.msg,
+              type: "warning",
+              center: "center",
+            });
+          }
         } else {
           //第一次评论
           const userId = uuidv4();

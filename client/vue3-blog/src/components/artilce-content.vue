@@ -153,7 +153,7 @@ export default {
 
     result.content = marked(result.content); //解析content
     this.articleDate = result;
-    document.title = result.title + "-焦文松的博客";
+    document.title = result.title + "-胡志光的博客";
     this.type = result.type;
 
     //分页获取评论

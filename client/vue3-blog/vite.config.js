@@ -1,7 +1,7 @@
 export default {
     proxy: {
         '/web': {
-            target: 'http://localhost',
+            target: 'http://songhua.icu',
             changeOrigin: true,
         }
     }

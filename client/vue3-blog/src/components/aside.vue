@@ -6,7 +6,7 @@
       <router-link class="avat" to="/" >
         <img class="logo" src="../assets/logo.jpg" alt="头像" @click="changePageIndex" />
       </router-link>
-      <h1 class="aside-profile-title">焦文松的博客</h1>
+      <h1 class="aside-profile-title">胡志光的博客</h1>
       <div class="aside-profile-description">祝:小花每天开心</div>
       <!-- <div class="aside-profile-description">Life is a funcking movie</div> -->
     </div>

@@ -10,6 +10,7 @@ export default defineConfig({
                 target: 'http://songhua.icu',
                 changeOrigin: true,
             }
-        }
+        },
+        host:true
     }
 })

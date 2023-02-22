@@ -4,7 +4,8 @@
     <!-- 头像区域 -->
     <div class="aside-profile">
       <router-link class="avat" to="/" >
-        <img class="logo" src="../assets/logo.jpg" alt="头像" @click="changePageIndex" />
+        <!-- <img class="logo" src="../assets/logo.jpg" alt="头像" @click="changePageIndex" /> -->
+        <Taiji :size="150" class="taiji"/>
       </router-link>
       <h1 class="aside-profile-title">胡志光的博客</h1>
       <div class="aside-profile-description">祝:小花每天开心</div>
@@ -43,6 +44,7 @@ import {
 import { ref } from "vue";
 import { getType } from "../request/aside";
 import pageRefStore from "../store/page";
+import Taiji from "./taiJi.vue";
 export default {
   setup() {
     let typeData = ref([]);
@@ -53,6 +55,9 @@ export default {
       typeData,
     };
   },
+  components:{
+    Taiji
+  },
   methods: {
     changePageIndex() {
       pageRefStore.value.offset = 1;
@@ -62,6 +67,18 @@ export default {
 </script>
 
 <style scoped lang='less'>
+@keyframes taiji{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.taiji{
+  margin-bottom: 20px;
+  animation: taiji 10s linear infinite;
+}
 .aside-container {
   position: relative;
   z-index: 100;

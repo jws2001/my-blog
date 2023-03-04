@@ -1,7 +1,7 @@
 <template>
   <div class="footer-container">
     <p>
-      © {{ year }} - 焦文松的博客 -
+      © {{ year }} - Wolf的博客 -
       <a target="_black" href="https://beian.miit.gov.cn"
         >蜀ICP备2021010608号</a
       >

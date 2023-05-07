@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const cookieKey = "token";
-const secrect = 'Wolf的博客-(blog)';
+const secrect = '焦文松的博客-(blog)';
 //颁发JWT
 /**
  * 

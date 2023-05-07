@@ -4,7 +4,7 @@
       <!-- 列表 -->
       <i class="iconfont">&#xe649;</i>
     </div>
-    <h1 class="title-container">Wolf的博客</h1>
+    <h1 class="title-container">焦文松的博客</h1>
     <div class="avater-container">
       <router-link to="/">
         <img src="../assets/logo.jpg" alt="帅气的我" />
